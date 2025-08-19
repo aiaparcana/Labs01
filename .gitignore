@@ -1,0 +1,14 @@
+﻿# NetBeans / Java / VS Code
+**/build/
+**/dist/
+**/nbbuild/
+**/nbdist/
+**/.nb-gradle/
+**/nbproject/private/
+**/.idea/
+**/.vscode/
+**/*.class
+**/*.log
+**/*.war
+**/*.ear
+**/*.iml

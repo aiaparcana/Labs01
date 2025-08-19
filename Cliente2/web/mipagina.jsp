@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>OPERACIONES MATEMATICAS</h1>
         <form action="miServlet"  method="post">
             <input type="text" name="variable1" />
             <input type="text" name="variable2" />

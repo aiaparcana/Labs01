@@ -34,21 +34,44 @@ public class miServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+
+    String accion = request.getParameter("accion"); // "Mayor" o "Menor"
+
+    try (PrintWriter out = response.getWriter()) {
+        int n1 = Integer.parseInt(request.getParameter("variable1"));
+        int n2 = Integer.parseInt(request.getParameter("variable2"));
+        int n3 = Integer.parseInt(request.getParameter("variable3"));
+        int n4 = Integer.parseInt(request.getParameter("variable4"));
+
+        Integer resultado;
+        if ("Menor".equalsIgnoreCase(accion)) {
+            resultado = menor(n1, n2, n3, n4); // NUEVO
+            out.println("<!DOCTYPE html><html><head><title>Resultado</title></head><body>");
+            out.println("<h2>El número menor es: " + resultado + "</h2>");
+            out.println("</body></html>");
+        } else {
+            // Por defecto o si presionan "Mayor"
+            resultado = mayor(n1, n2, n3, n4);
+            out.println("<!DOCTYPE html><html><head><title>Resultado</title></head><body>");
+            out.println("<h2>El número mayor es: " + resultado + "</h2>");
+            out.println("</body></html>");
+        }
+    } catch (NumberFormatException e) {
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet miServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println(mayor(Integer.parseInt(request.getParameter("variable1")),Integer.parseInt(request.getParameter("variable2")),Integer.parseInt(request.getParameter("variable3")), Integer.parseInt(request.getParameter("variable4"))));
-            out.println("</body>");
-            out.println("</html>");
+            out.println("<!DOCTYPE html><html><head><title>Error</title></head><body>");
+            out.println("<h3>Ingresa solo números válidos.</h3>");
+            out.println("</body></html>");
+        }
+    } catch (Exception e) {
+        try (PrintWriter out = response.getWriter()) {
+            out.println("<!DOCTYPE html><html><head><title>Error</title></head><body>");
+            out.println("<h3>Ocurrió un problema al consultar el servicio.</h3>");
+            out.println("</body></html>");
         }
     }
+}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -95,5 +118,10 @@ public class miServlet extends HttpServlet {
         paqueteservicio.ServicioWeb port = service.getServicioWebPort();
         return port.mayor(numero1, numero2, numero3, numero4);
     }
+    private Integer menor(int numero1, int numero2, int numero3, int numero4) {
+    paqueteservicio.ServicioWeb port = service.getServicioWebPort();
+    return port.menor(numero1, numero2, numero3, numero4);
+}
+
 
 }

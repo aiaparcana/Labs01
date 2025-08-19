@@ -36,4 +36,22 @@ public class ServicioWeb {
             }
         return mayor;
     }
+    @WebMethod(operationName = "menor")
+    public Integer menor(
+        @WebParam(name = "numero1") int numero1,
+        @WebParam(name = "numero2") int numero2,
+        @WebParam(name = "numero3") int numero3,
+        @WebParam(name = "numero4") int numero4) {
+
+        int[] numeros = {numero1, numero2, numero3, numero4};
+        int menor = numeros[0];
+
+        for (int i = 1; i < numeros.length; i++) {
+            if (numeros[i] < menor) {
+                menor = numeros[i];
+            }
+        }
+        return menor;
+    }   
+
 }

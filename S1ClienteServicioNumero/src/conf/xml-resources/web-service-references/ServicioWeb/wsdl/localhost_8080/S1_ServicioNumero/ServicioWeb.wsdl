@@ -10,15 +10,34 @@
 <message name="mayorResponse">
 <part name="parameters" element="tns:mayorResponse"/>
 </message>
+<message name="menor">
+<part name="parameters" element="tns:menor"/>
+</message>
+<message name="menorResponse">
+<part name="parameters" element="tns:menorResponse"/>
+</message>
 <portType name="ServicioWeb">
 <operation name="mayor">
 <input wsam:Action="http://paqueteServicio/ServicioWeb/mayorRequest" message="tns:mayor"/>
 <output wsam:Action="http://paqueteServicio/ServicioWeb/mayorResponse" message="tns:mayorResponse"/>
 </operation>
+<operation name="menor">
+<input wsam:Action="http://paqueteServicio/ServicioWeb/menorRequest" message="tns:menor"/>
+<output wsam:Action="http://paqueteServicio/ServicioWeb/menorResponse" message="tns:menorResponse"/>
+</operation>
 </portType>
 <binding name="ServicioWebPortBinding" type="tns:ServicioWeb">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
 <operation name="mayor">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="menor">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

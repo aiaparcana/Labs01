@@ -25,4 +25,22 @@ public class ServicioWeb {
         //TODO write your implementation code here:
         return numero1 + numero2;
     }
+    
+        @WebMethod(operationName = "resta")
+    public Integer resta(@WebParam(name = "numero1") int numero1, @WebParam(name = "numero2") int numero2) {
+        return numero1 - numero2;
+    }
+
+    @WebMethod(operationName = "multiplicacion")
+    public Integer multiplicacion(@WebParam(name = "numero1") int numero1, @WebParam(name = "numero2") int numero2) {
+        return numero1 * numero2;
+    }
+
+    @WebMethod(operationName = "division")
+    public Double division(@WebParam(name = "numero1") int numero1, @WebParam(name = "numero2") int numero2) {
+        if (numero2 == 0) {
+            throw new IllegalArgumentException("No se puede dividir entre cero");
+        }
+        return (double) numero1 / numero2;
+    }
 }

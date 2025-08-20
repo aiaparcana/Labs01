@@ -92,7 +92,11 @@
 
                 <select name="operacion" required>
                     <option value="suma">Suma</option>
+                    <option value="resta">Resta</option>
+                    <option value="multiplicacion">Multiplicación</option>
+                    <option value="division">División</option>
                 </select>
+
 
                 <br>
                 <input type="submit" value="Calcular" />

@@ -63,10 +63,23 @@ public class miServlet extends HttpServlet {
                     switch (op) {
                         case "suma":
                             resultado = suma(n1, n2);
+                            out.println("<div class='resultado'>SUMA: " + resultado + "</div>");
                             break;
+                        case "resta":
+                            resultado = resta(n1, n2);
+                            out.println("<div class='resultado'>RESTA: " + resultado + "</div>");
+                            break;
+                        case "multiplicacion":
+                            resultado = multiplicacion(n1, n2);
+                            out.println("<div class='resultado'>MULTIPLICACIÓN: " + resultado + "</div>");
+                            break;
+                        case "division":
+                            double resDiv = division(n1, n2);
+                            out.println("<div class='resultado'>DIVISIÓN: " + resDiv + "</div>");
+                            break;
+                        default:
+                            out.println("<div class='resultado'>⚠️ Operación no reconocida.</div>");
                     }
-
-                    out.println("<div class='resultado'>" + op.toUpperCase() + ": " + resultado + "</div>");
 
                 } catch (NumberFormatException e) {
                     out.println("<div class='resultado'>⚠️ Error: ingresa solo números válidos.</div>");
@@ -123,6 +136,21 @@ public class miServlet extends HttpServlet {
         // If the calling of port operations may lead to race condition some synchronization is required.
         paqueteservicio.ServicioWeb port = service.getServicioWebPort();
         return port.suma(numero1, numero2);
+    }
+
+    private Integer resta(int numero1, int numero2) {
+        paqueteservicio.ServicioWeb port = service.getServicioWebPort();
+        return port.resta(numero1, numero2);
+    }
+
+    private Integer multiplicacion(int numero1, int numero2) {
+        paqueteservicio.ServicioWeb port = service.getServicioWebPort();
+        return port.multiplicacion(numero1, numero2);
+    }
+
+    private Double division(int numero1, int numero2) {
+        paqueteservicio.ServicioWeb port = service.getServicioWebPort();
+        return port.division(numero1, numero2);
     }
 
 }

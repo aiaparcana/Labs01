@@ -1,14 +1,26 @@
-﻿# NetBeans / Java / VS Code
-**/build/
-**/dist/
-**/nbbuild/
-**/nbdist/
-**/.nb-gradle/
-**/nbproject/private/
-**/.idea/
-**/.vscode/
-**/*.class
-**/*.log
-**/*.war
-**/*.ear
-**/*.iml
+﻿# Archivos compilados
+*.class
+*.war
+*.ear
+*.jar
+
+# Carpetas de compilación
+/dist/
+/build/
+/out/
+/nbbuild/
+/nbproject/private/
+/.apt_generated/
+/.generated/
+/target/
+
+# Configuración de IDEs
+/.idea/
+/*.iml
+/.classpath
+/.project
+/.settings/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

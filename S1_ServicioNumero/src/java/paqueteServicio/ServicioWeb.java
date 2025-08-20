@@ -53,5 +53,14 @@ public class ServicioWeb {
         }
         return menor;
     }   
+@WebMethod(operationName = "promedio")
+    public Integer promedio(
+        @WebParam(name = "numero1") int numero1,
+        @WebParam(name = "numero2") int numero2,
+        @WebParam(name = "numero3") int numero3,
+        @WebParam(name = "numero4") int numero4) {
 
+        int promedio = (numero1+numero2+numero3+numero4)/4;
+        return promedio;
+    }  
 }

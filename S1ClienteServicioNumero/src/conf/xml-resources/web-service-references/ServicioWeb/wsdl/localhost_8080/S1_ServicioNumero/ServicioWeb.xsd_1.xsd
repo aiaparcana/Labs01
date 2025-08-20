@@ -8,6 +8,25 @@
 
 <xs:element name="menorResponse" type="tns:menorResponse"/>
 
+<xs:element name="promedio" type="tns:promedio"/>
+
+<xs:element name="promedioResponse" type="tns:promedioResponse"/>
+
+<xs:complexType name="promedio">
+<xs:sequence>
+<xs:element name="numero1" type="xs:int"/>
+<xs:element name="numero2" type="xs:int"/>
+<xs:element name="numero3" type="xs:int"/>
+<xs:element name="numero4" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="promedioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="menor">
 <xs:sequence>
 <xs:element name="numero1" type="xs:int"/>

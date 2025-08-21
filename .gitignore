@@ -3,16 +3,24 @@
 *.war
 *.ear
 *.jar
+*.log
 
-# Carpetas de compilación
+# Carpetas de compilación (NetBeans, Maven, etc.)
 /dist/
 /build/
 /out/
 /nbbuild/
+/nbdist/
 /nbproject/private/
 /.apt_generated/
 /.generated/
 /target/
+
+# Carpetas build por módulo (si tienes varios subproyectos)
+**/build/
+/*/build/
+/*/dist/
+/*/nbproject/private/
 
 # Configuración de IDEs
 /.idea/
@@ -20,7 +28,25 @@
 /.classpath
 /.project
 /.settings/
+/.vscode/
 
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+
+# NetBeans específicos de tus proyectos
+/Cliente2/dist/
+/Cliente2/build/
+/Cliente2/nbproject/private/
+
+/Servicio/dist/
+/Servicio/build/
+/Servicio/nbproject/private/
+
+/S1ClienteServicioNumero/dist/
+/S1ClienteServicioNumero/build/
+/S1ClienteServicioNumero/nbproject/private/
+
+/S1_ServicioNumero/dist/
+/S1_ServicioNumero/build/
+/S1_ServicioNumero/nbproject/private/
